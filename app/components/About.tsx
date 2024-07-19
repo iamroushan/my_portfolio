@@ -15,30 +15,28 @@ type ServiceCardProps = {
 
 const ServiceCard = ({ index, title, icon }: ServiceCardProps) => {
 	return (
-		<>
-			<Tilt
-				options={{ max: 45, scale: 1, speed: 450 }}
-				className="xs:w-[250px] w-full"
+		<Tilt
+			options={{ max: 45, scale: 1, speed: 450 }}
+			className="xs:w-[250px] w-full"
+		>
+			<motion.div
+				variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+				className="w-full green-pink-gradient p-px rounded-[20px] shadow-card"
 			>
-				<motion.div
-					variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-					className="w-full green-pink-gradient p-px rounded-[20px] shadow-card"
-				>
-					<div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
-						<Image
-							src={icon}
-							width={64}
-							height={64}
-							alt={title}
-							className="w-16 h-16 object-contain"
-						/>
-						<h3 className="text-white text-[20px] font-bold text-center">
-							{title}
-						</h3>
-					</div>
-				</motion.div>
-			</Tilt>
-		</>
+				<div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+					<Image
+						src={icon}
+						width={64}
+						height={64}
+						alt={title}
+						className="w-16 h-16 object-contain"
+					/>
+					<h3 className="text-white text-[20px] font-bold text-center">
+						{title}
+					</h3>
+				</div>
+			</motion.div>
+		</Tilt>
 	);
 };
 
@@ -54,12 +52,12 @@ const About = () => {
 				variants={fadeIn("", "", 0.1, 1)}
 				className="mt-4 text-secondary text-[17px] max-w-[3xl] leading-[30px]"
 			>
-				I'm a passionate Full Stack Web Developer and C++ Programmer, dedicated to building real-world projects that make a difference. With a solid foundation in both frontend and backend technologies, I specialize in creating dynamic and responsive web applications using modern frameworks and tools.
-
-				Currently, I'm focused on developing cutting-edge projects with Next.js, leveraging its powerful features to deliver seamless user experiences. My expertise spans across a range of technologies, including:
-
+				I&apos;m a passionate Full Stack Web Developer and C++ Programmer, dedicated to building real-world projects that make a difference. With a solid foundation in both frontend and backend technologies, I specialize in creating dynamic and responsive web applications using modern frameworks and tools.
 				<br />
-
+				<br />
+				Currently, I&apos;m focused on developing cutting-edge projects with Next.js, leveraging its powerful features to deliver seamless user experiences. My expertise spans across a range of technologies, including:
+				<br />
+				<br />
 				Frontend: React.js, Next.js, TailwindCSS, and more
 				<br />
 				Backend: Node.js, Express, and various database systems
