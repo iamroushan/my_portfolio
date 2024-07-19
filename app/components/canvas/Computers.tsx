@@ -5,14 +5,14 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useState } from "react";
 
 const Computers = ({ isMobile }: { isMobile: boolean }) => {
-  const { scene } = useGLTF("/desktop_pc/scene.gltf"); // Load GLTF model
+  const { scene } = useGLTF("/desktop_pc/scene.gltf");
 
   return (
     <mesh>
       <hemisphereLight intensity={0.15} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight
-        position={[-20, 50, 10]}
+        position={[-20, 50, 10]}	
         angle={0.12}
         penumbra={1}
         intensity={1}
@@ -51,6 +51,8 @@ const ComputersCanvas = () => {
     const handleContextLost = (event: { preventDefault: () => void; }) => {
       event.preventDefault();
       console.warn('WebGL context lost');
+      // Optionally reload or reset the WebGL context
+      window.location.reload(); // Use cautiously
     };
 
     const handleContextRestored = () => {

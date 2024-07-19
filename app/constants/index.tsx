@@ -265,9 +265,9 @@ const projects = [
 				color: "pink-text-gradient",
 			},
 		],
-		image: "/projectimg/portfoliosample.webp",
-		source_code_link: "https://github.com/omunite215/portfolio",
-		vercel_link: "https://portfoliobyompatel.netlify.app/",
+		image: "/projectimg/portfolio.png",
+		source_code_link: "https://github.com/iamroushan/my_portfolio",
+		vercel_link: "https://roushanfolio.vercel.app/",
 	},
 ];
 
