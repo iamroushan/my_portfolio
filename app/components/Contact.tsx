@@ -14,7 +14,6 @@ const Contact = () => {
 		email: "",
 		message: "",
 	});
-
 	const [loading, setLoading] = useState(false);
 
 	const handleChange = (
@@ -24,13 +23,25 @@ const Contact = () => {
 		setForm({ ...form, [name]: value });
 	};
 
+	const validateEmail = (email: string) => {
+		// Regex to validate email ending with @gmail.com
+		const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+		return regex.test(email);
+	};
+
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setLoading(true);
 
-		const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-		const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-		const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+		if (!validateEmail(form.email)) {
+			setLoading(false);
+			alert("Only Gmail addresses are allowed.");
+			return;
+		}
+
+		const serviceId = "service_yy0rjfq";
+		const templateId = "template_yb9awne";
+		const publicKey = "i9hkdXBUz3Z2WnKYm";
 
 		if (!serviceId || !templateId || !publicKey) {
 			setLoading(false);
@@ -54,7 +65,7 @@ const Contact = () => {
 			.then(() => {
 				setLoading(false);
 				alert(
-					"A humble thanks for reaching me out. I will respond to you as soon as possible.",
+					"A humble thanks for reaching out. I will respond to you as soon as possible.",
 				);
 				setForm({
 					name: "",
@@ -123,12 +134,6 @@ const Contact = () => {
 							{loading ? "Sending..." : "Send"}
 						</button>
 					</form>
-				</motion.div>
-				<motion.div
-					variants={slideIn("right", "tween", 0.2, 1)}
-					className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
-				>
-					<EarthCanvas />
 				</motion.div>
 			</div>
 			<footer className="bg-gray-800 text-center py-4 mt-auto text-white">
